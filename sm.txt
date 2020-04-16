@@ -8,5 +8,5 @@ git reset --hard hash码
 这三种不保留状态
 
 回到旧版本
-
- 
+git checkout 44aa035f -- sm.txt
+保留状态
