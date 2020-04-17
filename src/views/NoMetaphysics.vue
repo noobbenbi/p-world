@@ -89,7 +89,6 @@
 </template>
 
 <script>
-// import { fun } from '../common/fun.js'
 import Data from '../common/data.json'
 import Equipment from '../common/newequipment.json'
 export default {
@@ -143,7 +142,6 @@ export default {
       },
       changeModel3(val){
           this.id = val-1;
-        //   console.log(this.id);
       },
       getFullVal(val){//获取满精炼度
           for (let i = 0; i < Data.length; i++) {
@@ -156,23 +154,44 @@ export default {
       custOfStone(type,level){//选择不同的石头强化一次所消耗的元宝
           if (type == 2&&level < 9) {
               this.consume = this.consume + 72;
-              return this.consume;
           } else if(type == 2&&level > 8&&level<15){
               this.consume = this.consume +432;
-              return this.consume;
-          } else if(type == 2&&level >14){
+          } else if(type == 2&&level >14&&level<20){
               this.consume = this.consume +2160;
+          } else if (type == 2&&level >19 ) {
+              this.consume = this.consume + 4320;
           } else if(type == 3){
               this.consume = this.consume + 132;
           }else if(type == 4&&level > 14){
-              this.consume = this.consume + 60;
+              switch(level) {
+                    case 15:
+                    case 16:
+                        this.consume = this.consume + 360;
+                        break;
+                    case 17:
+                    case 18:
+                        this.consume = this.consume +420;
+                        break;
+                    case 19:
+                        this.consume = this.consume +480;
+                        break;
+                    case 20:
+                    case 21:
+                        this.consume = this.consume +1008;
+                        break;
+                    case 22:
+                        case 23:
+                        this.consume = this.consume +1176;
+                        break;
+                    case 24:
+                        this.consume = this.consume +1344;
+                    
+              }
           }
       },
       
       toDo() {
-          
-        //   this.level = this.equipmentList[this.id].level;
-        //   this.strengthenVal = this.equipmentList[this.id].strengthenVal;
+        //   console.log(this.stoneType,this.equipmentList[this.id].level);
           console.log('目前精炼度为：'+this.equipmentList[this.id].strengthenVal);
           console.log('免费上所需精炼度为：'+Data[this.equipmentList[this.id].level-3].fullVal)
           console.log('上次精炼等级：'+this.equipmentList[this.id].level);
@@ -202,9 +221,7 @@ export default {
               this.equipmentList[this.id].strengthenVal = this.equipmentList[this.id].strengthenVal+this.ifFail(this.equipmentList[this.id].level,4);
               this.custOfStone(this.stoneType,this.equipmentList[this.id].level);
           }
-        //   console.log(this.level,this.probabilityValue,this.strengthenVal);
-        //   console.log(this.equipmentList[0].lable);
-        //   console.log(this.strengthenProbability(this.level,this.stoneType));
+       
       },
       strengthenProbability(lev,stoneType) {//计算不同等级不同强化石头的概率
             for(var i = 0;i < Data.length; i++){

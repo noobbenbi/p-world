@@ -111,45 +111,90 @@
         "level":15,
         "Probability":18,
         "fullVal":3017,
-        "valOfNone":0,
+        "valOfNone":106,
         "valOfQK":160,
         "valOfTG":160,
-        "valOfDS":0
+        "valOfDS":31
     },
     {
         "level":16,
         "Probability":17,
         "fullVal":3194,
-        "valOfNone":0,
+        "valOfNone":486,
         "valOfQK":160,
         "valOfTG":600,
-        "valOfDS":0
+        "valOfDS":31
     },
     {
         "level":17,
         "Probability":16,
         "fullVal":3394,
-        "valOfNone":0,
+        "valOfNone":502,
         "valOfQK":160,
         "valOfTG":610,
-        "valOfDS":0
+        "valOfDS":36
     },
     {
         "level":18,
         "Probability":15,
         "fullVal":3620,
-        "valOfNone":0,
+        "valOfNone":650,
         "valOfQK":160,
         "valOfTG":650,
-        "valOfDS":0
+        "valOfDS":36
     },
     {
         "level":19,
         "Probability":14,
         "fullVal":3879,
-        "valOfNone":0,
+        "valOfNone":680,
         "valOfQK":160,
         "valOfTG":680,
-        "valOfDS":0
+        "valOfDS":41
+    },
+    {
+        "level":20,
+        "Probability":13,
+        "fullVal":8331,
+        "valOfNone":700,
+        "valOfQK":361,
+        "valOfTG":700,
+        "valOfDS":41
+    },
+    {
+        "level":21,
+        "Probability":12,
+        "fullVal":8331,
+        "valOfNone":1500,
+        "valOfQK":361,
+        "valOfTG":1500,
+        "valOfDS":85
+    },
+    {
+        "level":22,
+        "Probability":11,
+        "fullVal":8331,
+        "valOfNone":1600,
+        "valOfQK":361,
+        "valOfTG":1600,
+        "valOfDS":99
+    },
+    {
+        "level":23,
+        "Probability":11,
+        "fullVal":8331,
+        "valOfNone":1650,
+        "valOfQK":361,
+        "valOfTG":1650,
+        "valOfDS":99
+    },
+    {
+        "level":24,
+        "Probability":10,
+        "fullVal":8331,
+        "valOfNone":1650,
+        "valOfQK":361,
+        "valOfTG":1650,
+        "valOfDS":112
     }
 ]
