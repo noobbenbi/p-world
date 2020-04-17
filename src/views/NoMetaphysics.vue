@@ -83,6 +83,7 @@
       <div class="btn-box">
           <Button type="primary" @click="toDo">精炼</Button>
           <Button type="warning">重置</Button>
+          <span>元宝消耗：{{this.consume}}</span>
       </div>
   </div>
 </template>
@@ -152,47 +153,54 @@ export default {
               
           } 
       },
-      custOfStone(type){
-          if (type == 2) {
-              
-          } else {
-              
+      custOfStone(type,level){//选择不同的石头强化一次所消耗的元宝
+          if (type == 2&&level < 9) {
+              this.consume = this.consume + 72;
+              return this.consume;
+          } else if(type == 2&&level > 8&&level<15){
+              this.consume = this.consume +432;
+              return this.consume;
+          } else if(type == 2&&level >14){
+              this.consume = this.consume +2160;
+          } else if(type == 3){
+              this.consume = this.consume + 132;
+          }else if(type == 4&&level > 14){
+              this.consume = this.consume + 60;
           }
       },
-      valueBack(){
-          this.equipmentList[this.id].level = this.level;
-          this.equipmentList[this.id].strengthenVal = this.strengthenVal;
-          console.log(this.equipmentList[this.id].name)
-          console.log(this.strengthenVal);
-        //   console.log(this.stoneType);
-      },
+      
       toDo() {
-          this.level = this.equipmentList[this.id].level;
-          this.strengthenVal = this.equipmentList[this.id].strengthenVal;
-          this.probabilityValue = this.strengthenProbability(this.level,this.stoneType);
-          this.theKey = this.strengthenGo(this.level,this.probabilityValue);
-          if(this.strengthenVal >= Data[this.level-1].fullVal){//满精炼度情况
-              this.level++;
-              this.strengthenVal = 0;
-              this.valueBack();
+          
+        //   this.level = this.equipmentList[this.id].level;
+        //   this.strengthenVal = this.equipmentList[this.id].strengthenVal;
+          console.log('目前精炼度为：'+this.equipmentList[this.id].strengthenVal);
+          console.log('免费上所需精炼度为：'+Data[this.equipmentList[this.id].level-3].fullVal)
+          console.log('上次精炼等级：'+this.equipmentList[this.id].level);
+          this.probabilityValue = this.strengthenProbability(this.equipmentList[this.id].level,this.stoneType);
+          this.theKey = this.strengthenGo(this.equipmentList[this.id].level,this.probabilityValue);
+          if(this.equipmentList[this.id].strengthenVal >= Data[this.equipmentList[this.id].level-3].fullVal){//满精炼度情况
+              this.equipmentList[this.id].level++;
+              this.equipmentList[this.id].strengthenVal = 0;
+              console.log('满精炼度，免费上');
           } else if (this.theKey) {//成功
-              this.level++;
-              this.strengthenVal = 0;
-              this.valueBack();
+              this.equipmentList[this.id].level++;
+              this.equipmentList[this.id].strengthenVal = 0;
+              this.custOfStone(this.stoneType,this.equipmentList[this.id].level);
           } else if(!this.theKey&&this.stoneType == 1) {//石头1失败
-              this.level--;
-              this.strengthenVal = this.strengthenVal+this.ifFail(this.level,1);
-              this.valueBack();
+              this.equipmentList[this.id].level--;
+              this.equipmentList[this.id].strengthenVal = this.equipmentList[this.id].strengthenVal+this.ifFail(this.equipmentList[this.id].level,1);
+              this.custOfStone(this.stoneType,this.equipmentList[this.id].level);
           }else if(!this.theKey&&this.stoneType == 2){//石头2失败
-              this.strengthenVal = this.strengthenVal+this.ifFail(this.level,2);
-              this.valueBack();
+              this.equipmentList[this.id].strengthenVal = this.equipmentList[this.id].strengthenVal+this.ifFail(this.equipmentList[this.id].level,2);
+              this.custOfStone(this.stoneType,this.equipmentList[this.id].level);
           }else if(!this.theKey&&this.stoneType == 3){//石头3失败
-              this.level--;
-              this.strengthenVal = this.strengthenVal+this.ifFail(this.level,3);
-              this.valueBack();
+              this.equipmentList[this.id].level--;
+              this.equipmentList[this.id].strengthenVal = this.equipmentList[this.id].strengthenVal+this.ifFail(this.equipmentList[this.id].level,3);
+              this.custOfStone(this.stoneType,this.equipmentList[this.id].level);
+              console.log('天罡失败，精炼度+：'+this.equipmentList[this.id].strengthenVal)
           }else if(!this.theKey&&this.stoneType == 4) {//石头4失败
-              this.strengthenVal = this.strengthenVal+this.ifFail(this.level,4);
-              this.valueBack();
+              this.equipmentList[this.id].strengthenVal = this.equipmentList[this.id].strengthenVal+this.ifFail(this.equipmentList[this.id].level,4);
+              this.custOfStone(this.stoneType,this.equipmentList[this.id].level);
           }
         //   console.log(this.level,this.probabilityValue,this.strengthenVal);
         //   console.log(this.equipmentList[0].lable);
@@ -220,7 +228,7 @@ export default {
         },
         ifFail(lev,stoneType) { //不同石头强化失败返回的精炼度
                 for(var i = 0;i < Data.length; i++) {
-                    if(lev == Data[i].level){
+                    if(lev == Data[i].level-1){
                         if(stoneType == 1){
                             return Data[i].valOfNone;
                         }else if (stoneType == 2) {
