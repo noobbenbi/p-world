@@ -1,12 +1,11 @@
-版本2  master版本
-版本二(臭弟弟) choudidi
-合并版本
+master版本
+
 
 git checkout 恢复操作
 版本回退
 git reset --hard HEAD^回到上个版本 
 git reset --hard HEAD^^回到上上个版本
-git reset --hard hash码 
+git reset --hard hash码 回到对应版本
 这三种不保留状态
 
 回到旧版本
