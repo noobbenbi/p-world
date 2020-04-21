@@ -1,4 +1,4 @@
-版本2(臭弟弟) choudidi
+版本二(臭弟弟) choudidi
 
 git checkout 恢复操作
 版本回退
