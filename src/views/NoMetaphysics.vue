@@ -46,39 +46,45 @@
                 <span>{{this.equipmentList[1].name}}:+{{this.equipmentList[1].level}}---({{this.equipmentList[1].strengthenVal}}/{{this.getFullVal(this.equipmentList[1].level)}})</span>
             </Radio>
             <Radio label="3">
-                <span>{{this.equipmentList[2].name}}:+{{this.equipmentList[2].level}}</span>
+                <span>{{this.equipmentList[2].name}}:+{{this.equipmentList[2].level}}---({{this.equipmentList[2].strengthenVal}}/{{this.getFullVal(this.equipmentList[2].level)}})</span>
             </Radio>
             <Radio label="4">
-                <span>{{this.equipmentList[3].name}}:+{{this.equipmentList[3].level}}</span>
+                <span>{{this.equipmentList[3].name}}:+{{this.equipmentList[3].level}}---({{this.equipmentList[3].strengthenVal}}/{{this.getFullVal(this.equipmentList[3].level)}})</span>
             </Radio>
             <Radio label="5">
-                <span>{{this.equipmentList[4].name}}:+{{this.equipmentList[4].level}}</span>
+                <span>{{this.equipmentList[4].name}}:+{{this.equipmentList[4].level}}---({{this.equipmentList[4].strengthenVal}}/{{this.getFullVal(this.equipmentList[4].level)}})</span>
             </Radio>
             <Radio label="6">
-                <span>{{this.equipmentList[5].name}}:+{{this.equipmentList[5].level}}</span>
+                <span>{{this.equipmentList[5].name}}:+{{this.equipmentList[5].level}}---({{this.equipmentList[5].strengthenVal}}/{{this.getFullVal(this.equipmentList[5].level)}})</span>
             </Radio>
             <Radio label="7">
-                <span>{{this.equipmentList[6].name}}:+{{this.equipmentList[6].level}}</span>
+                <span>{{this.equipmentList[6].name}}:+{{this.equipmentList[6].level}}---({{this.equipmentList[6].strengthenVal}}/{{this.getFullVal(this.equipmentList[6].level)}})</span>
             </Radio>
             <Radio label="8">
-                <span>{{this.equipmentList[7].name}}:+{{this.equipmentList[7].level}}</span>
+                <span>{{this.equipmentList[7].name}}:+{{this.equipmentList[7].level}}---({{this.equipmentList[7].strengthenVal}}/{{this.getFullVal(this.equipmentList[7].level)}})</span>
             </Radio>
             <Radio label="9">
-                <span>{{this.equipmentList[8].name}}:+{{this.equipmentList[8].level}}</span>
+                <span>{{this.equipmentList[8].name}}:+{{this.equipmentList[8].level}}---({{this.equipmentList[8].strengthenVal}}/{{this.getFullVal(this.equipmentList[8].level)}})</span>
             </Radio>
             <Radio label="10">
-                <span>{{this.equipmentList[9].name}}:+{{this.equipmentList[9].level}}</span>
+                <span>{{this.equipmentList[9].name}}:+{{this.equipmentList[9].level}}---({{this.equipmentList[9].strengthenVal}}/{{this.getFullVal(this.equipmentList[9].level)}})</span>
             </Radio>
             <Radio label="11">
-                <span>{{this.equipmentList[10].name}}:+{{this.equipmentList[10].level}}</span>
+                <span>{{this.equipmentList[10].name}}:+{{this.equipmentList[10].level}}---({{this.equipmentList[10].strengthenVal}}/{{this.getFullVal(this.equipmentList[10].level)}})</span>
             </Radio>
             <Radio label="12">
-                <span>{{this.equipmentList[11].name}}:+{{this.equipmentList[11].level}}</span>
+                <span>{{this.equipmentList[11].name}}:+{{this.equipmentList[11].level}}---({{this.equipmentList[11].strengthenVal}}/{{this.getFullVal(this.equipmentList[11].level)}})</span>
             </Radio>
             <Radio label="13">
-                <span>{{this.equipmentList[12].name}}:+{{this.equipmentList[12].level}}</span>
+                <span>{{this.equipmentList[12].name}}:+{{this.equipmentList[12].level}}---({{this.equipmentList[12].strengthenVal}}/{{this.getFullVal(this.equipmentList[12].level)}})</span>
             </Radio>
         </RadioGroup>
+      </div>
+      <div class="reverse">
+          <Button type="primary">扭转乾坤</Button>
+          <span>部位1：{{}}</span>
+          <span>部位2：{{}}</span>
+          <Button type="warning">确定扭转</Button>
       </div>
       <div class="btn-box">
           <Button type="primary" @click="toDo">精炼</Button>
@@ -265,5 +271,15 @@ export default {
 </script>
 
 <style scoped>
+*{
+    padding: 0;
+    margin: 0;
+}
+.NoMetaphysics {
+    width: 1000px;
+    height: 400px;
+    margin: 100px auto;
+    display: block;
+}
 
 </style>

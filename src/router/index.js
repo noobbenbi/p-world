@@ -16,6 +16,13 @@ Vue.use(VueRouter)
     component: function () {
       return import( '../views/NoMetaphysics.vue')
     }
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: function () {
+      return import( '../views/About.vue')
+    }
   }
 ]
 
