@@ -1,5 +1,5 @@
 <template>
-    <div>C</div>
+    <div>CC</div>
 </template>
 <script>
 
