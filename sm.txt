@@ -1,6 +1,6 @@
-
 版本2  master版本
-
+版本二(臭弟弟) choudidi
+合并版本
 
 git checkout 恢复操作
 版本回退
