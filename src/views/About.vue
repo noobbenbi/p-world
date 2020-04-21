@@ -44,12 +44,27 @@ export default {
            let {length : l} = 'abcdefg'
            console.log(l);
         },
+        letTest4(){
+           let str = '(面积*0.011)*单价';
+           let newStr = Array.from(str);
+           console.log(newStr);
+        },
+        letTest5(){
+           var str = '(面积*0.011)*单价';
+           let newStr = [];
+           for(var i=0;i<str.length;i++){
+               newStr[i] = str.charAt(i); 
+           }
+           console.log(newStr);
+        },
     },
     created(){
-        this.letTest();
-        this.letTest1();
-        this.letTest2();
-        this.letTest3()
+        // this.letTest();
+        // this.letTest1();
+        // this.letTest2();
+        // this.letTest3()
+        this.letTest4();
+        this.letTest5();
     }
 }
 </script>
